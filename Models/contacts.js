@@ -1,16 +1,14 @@
 const mongoose = require("mongoose");
+const contactsSchema = new mongoose.Schema({
+    name: {type:String},
+    designation: {type:String},
+    company:{type:String},
+    industry:{type:String},
+    email: {type:String},
+    phoneNumber:{type:String},
+    country:{type:String},
+    userId: { type: String, ref: "User" }
+});
 
-const contactSchema = {
- name:String,
- designation:String,
- company : String,
- industry: String,
- email:String,
- phonenumber:Number,
- country: String
-
-}
-
-const Contacts = mongoose.model("posts", contactSchema);
-
-module.exports = Contacts;
+const contactsModel = new mongoose.model("contacts", contactsSchema);
+module.exports = contactsModel;
